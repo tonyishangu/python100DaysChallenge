@@ -12,3 +12,11 @@ for h in heights:
     counter += 1
 avg = round(total/counter)
 print(avg)
+
+# calculate the max number in a list
+scores = [78, 65, 89, 86, 55, 91, 64, 89]
+cur_max = scores[0]
+for s in scores:
+    if s > cur_max:
+        cur_max = s
+print(f'score is {s}')
