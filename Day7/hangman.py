@@ -1,6 +1,64 @@
 import random
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 words = ['advert', 'apple', 'zebra', 'academy', 'fox']
+lives = 6
 
 end_game = False
 while not end_game:
@@ -23,6 +81,12 @@ while not end_game:
             display[pos] = letter
 
     print(display)
+
+    if guess not in choosen_word:
+        lives -= 1
+        if lives == 0:
+            end_game = True
+            print('You lose dummy')
 
     if '_' not in display:
         end_game = True
