@@ -17,4 +17,17 @@ def encrypt(p_text, shift_no):
         word += new_letter
     print(f'encoded word is {word}')
 
-encrypt(p_text=text, shift_no=shift)
+def decryt(enc_word, shift_num):
+    new_word = ''
+    for letters in enc_word:
+        position = alphabet.index(letters)
+        new_position = position - shift_num
+        new_word += alphabet[new_position]
+    print(f'decoded word is {new_word}')
+
+if direction == 'encode':
+    encrypt(p_text=text, shift_no=shift)
+elif direction == 'decode':
+    decryt(enc_word=text, shift_num=shift)
+else:
+    print('Wrong input')
