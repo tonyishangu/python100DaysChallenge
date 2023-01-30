@@ -1,86 +1,32 @@
 import random
+import art
+# from art import logo, stages
+import guess_words
+# from guess_words import words
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
-
-words = ['advert', 'apple', 'zebra', 'academy', 'fox']
-lives = 6
-
+print(art.logo)
 end_game = False
+choosen_word = random.choice(guess_words.words)
+length = len(choosen_word)
+print(length)
+
+lives = 6
+print(choosen_word)
+
+display = []
+
+for _ in range(length):
+    display += '_'
+print(display)
+
 while not end_game:
-    choosen_word = random.choice(words)
-
-    print(choosen_word)
-    length = len(choosen_word)
-    print(length)
-    display = []
-
-    for _ in range(length):
-        display += '_'
-    print(display)
-
     guess = input('Guess a letter\n').lower()
 
     for pos in range(length):
         letter = choosen_word[pos]
+
         if letter == guess:
             display[pos] = letter
-
-    print(display)
 
     if guess not in choosen_word:
         lives -= 1
@@ -88,6 +34,10 @@ while not end_game:
             end_game = True
             print('You lose dummy')
 
+    print(f"{' '.join(display)}")
+
     if '_' not in display:
         end_game = True
         print('You won')
+
+    print(art.stages[lives])
