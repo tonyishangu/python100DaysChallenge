@@ -22,6 +22,9 @@ print(display)
 while not end_game:
     guess = input('Guess a letter\n').lower()
 
+    if guess in display:
+        print(f"You've already guessed {guess}")
+
     for pos in range(length):
         letter = choosen_word[pos]
 
@@ -29,6 +32,7 @@ while not end_game:
             display[pos] = letter
 
     if guess not in choosen_word:
+        print(f"Your guess of {guess} is wrong")
         lives -= 1
         if lives == 0:
             end_game = True
