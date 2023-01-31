@@ -12,13 +12,14 @@ student_grades = {}
 
 #TODO-2: Write your code below to add the grades to student_grades.👇
 for score in student_scores:
-    if student_scores[score] >= 91 and student_scores[score] <= 100:
+    grade = student_scores[score]
+    if grade >= 91 and grade <= 100:
         student_grades[score] = 'Outstanding'
-    elif student_scores[score] >= 81 and student_scores[score] < 91:
+    elif grade >= 81 and grade < 91:
         student_grades[score] = 'Exceeds Expectations'
-    elif student_scores[score] >= 71 and student_scores[score] < 81:
+    elif grade >= 71 and grade < 81:
         student_grades[score] = 'Acceptable'
-    elif student_scores[score] < 70:
+    elif grade < 70:
         student_grades[score] = 'Fail'
     
 
