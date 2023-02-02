@@ -5,12 +5,9 @@ student_scores = {
   "Draco": 74,
   "Neville": 62,
 }
-# 🚨 Don't change the code above 👆
 
-#TODO-1: Create an empty dictionary called student_grades.
 student_grades = {}
 
-#TODO-2: Write your code below to add the grades to student_grades.👇
 for score in student_scores:
     grade = student_scores[score]
     if grade >= 91 and grade <= 100:
@@ -22,6 +19,4 @@ for score in student_scores:
     elif grade < 70:
         student_grades[score] = 'Fail'
     
-
-# 🚨 Don't change the code below 👇
 print(student_grades)
