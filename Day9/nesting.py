@@ -53,3 +53,7 @@ def add_new_country(name, num, city):
 
 add_new_country("Russia", 2, ["Moscow", "Saint Petersburg"])
 print(travel_log)
+
+
+
+
