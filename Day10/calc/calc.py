@@ -1,22 +1,20 @@
 from art import logo
 
-print(logo)
-
 # Adding Function
-def add(a, b):
-    return a + b
+def add(num1, num2):
+    return num1 + num2
 
 # Subtract Function
-def minus(a, b):
-    return a - b
+def minus(num1, num2):
+    return num1 - num2
 
 # Multiplication Function
-def multiply(a, b):
-    return a * b
+def multiply(num1, num2):
+    return num1 * num2
 
 # division Function
-def divide(a, b):
-    return a / b
+def divide(num1, num2):
+    return num1 / num2
 
 operations = {
     '+': add,
@@ -24,16 +22,32 @@ operations = {
     '*': multiply,
     '/': divide
 }
+def calculator():
+    print(logo)
+    num1 = float(input('Enter the first number\n'))
+    for ops in operations:
+        print(ops)
+    should_continue = True
 
-a = int(input('Enter the first number'))
+    while should_continue:
+        pick_ops = input('Pick an operation\n')
+        num2 = float(input('Enter the second number\n'))
+        calc_func = operations[pick_ops]
+        answer = calc_func(num1, num2)
 
-for ops in operations:
-    print(ops)
+        print(f'{num1} {pick_ops} {num2} = {answer}')
 
-pick_ops = input('Pick an operation from the list above')
-b = int(input('Enter the second number'))
+        if input(f'Type "y" if you want to continue the calculation using {answer} or "n" to start a new calculation\n') == 'y':
+            num1 = answer
+        else:
+            should_continue = False
+            calculator()
 
-calc_func = operations[pick_ops]
-answer = calc_func(a, b)
+calculator()
 
-print(f'{a} {pick_ops} {b} = {answer}')
+    # pick_ops = input('Pick another operator')
+    # num3 = int(input('Enter another number'))
+    # calc_func = operations[pick_ops]
+    # second_answer = calc_func(calc_func(num1, num2), num3)
+
+    # print(f'{answer} {pick_ops} {num3} = {second_answer}')
