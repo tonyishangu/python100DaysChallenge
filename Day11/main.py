@@ -18,6 +18,21 @@ def calc_score(cards):
          
     return sum(cards)
 
+def compare(player_score, dealer_score):
+    if player_score == dealer_score:
+        return 'Draw'
+    elif dealer_score == 0:
+        return 'Dealer Wins with a Blackjack'
+    elif player_score == 0:
+        return 'Player Wins with a Blackjack'
+    elif player_score > 21:
+        return 'Above 21 you lose'
+    elif dealer_score > 21:
+        return 'Dealer went above 21 you win'
+    elif player_score > dealer_score:
+        return 'Pplayer Wins'
+    else:
+        return 'You lose'
 
 dealer_card = []
 player_card = []
@@ -28,11 +43,25 @@ for _ in range(2):
     dealer_card.append(pick_card())
     print(f'player cards {player_card}')
     print(f'dealer cards {dealer_card[0]}')
+while not game_over:
+    player_score = calc_score(player_card)
+    dealer_score = calc_score(dealer_card)
+    print(f'player score: {player_score}')
+    print(f'dealer score: {dealer_score}')
 
-player_score = calc_score(player_card)
-dealer_score = calc_score(dealer_card)
-print(f'player score: {player_score}')
-print(f'dealer score: {dealer_score}')
+    if player_score == 0 or dealer_score == 0 or player_score > 21:
+        game_over = True
+    else:
+        player_deal = input('Type "y" to get a new card or "n" to pass\n').lower()
+        if player_deal == 'y':
+            player_card.append(pick_card())
+            player_score = calc_score(player_card)
+            print(f'new score: {player_card}')
+            print(player_score)
+        else:
+            game_over = True
+while dealer_score != 0 and dealer_score < 17:
+    dealer_card.append(pick_card())
+    dealer_score = calc_score(dealer_card)
 
-if player_score == 0 or dealer_score == 0 or player_score > 21:
-    game_over = True
+print(compare(player_score, dealer_score))
