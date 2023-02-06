@@ -26,3 +26,13 @@ def drinks():
     print(health)
     # global variables can be accessed inside a function
 drinks()
+
+# Modifying Global Scope using keyword global
+ops = 2
+
+def increase_ops():
+    global ops
+    ops += 1
+    print(f'how many ops now: {ops}')
+
+increase_ops()
