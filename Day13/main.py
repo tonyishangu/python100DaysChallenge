@@ -1,18 +1,19 @@
 # --------------- DEBUGGING -----------/
 
 # Describe Problem
-def my_function():
+# def my_function():
     # for i in range(1,20):   # to print 20 you have to include 21 since in range the last digit is omitted
-      for i in range(1,21):  
-        if i == 20:
-            print('You got it')
-my_function()
+#       for i in range(1,21):  
+#         if i == 20:
+#             print('You got it')
+# my_function()
 
 # # Reproduce the Bug
-# from random import randint
-# dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
-# dice_num = randint(1, 6)
-# print(dice_imgs[dice_num])
+from random import randint
+dice_imgs = ["❶", "❷", "❸", "❹", "❺", "❻"]
+# dice_num = randint(1, 6)        #randint uses index to collect info from a list
+dice_num = randint(0, 5)
+print(dice_imgs[dice_num])
 
 # # Play Computer
 # year = int(input("What's your year of birth?"))
