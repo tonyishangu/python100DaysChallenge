@@ -11,6 +11,13 @@ def format_data(acc):
     # acc_followers = acc_a['follower_count']
     return f'{acc_name}, a {acc_desc}, from {acc_country}'
 
+def check_answer(choice, a_followers, b_followers):
+    '''use if statement to check if user is correct'''
+    if a_followers > b_followers:
+        return choice == 'a'
+    else:
+        return choice == 'b'
+    
 # display art
 print(logo)
 # generate 2 random accounts from the data
@@ -22,14 +29,20 @@ if acc_a == acc_b:
 # formated data
 print(f'Compare A: {format_data(acc_a)}')
 print(vs)
-print(f'Compare B: {format_data(acc_b)}')
-
+print(f'Against B: {format_data(acc_b)}')
 
 # input guess
+choice = input('Who has more follers, A or B ?').lower()
 # check if user is correct
-# ##----get folloers
-#  ###use if statement to check if user is correct
+# ##----get followers
+a_follower_count = acc_a['follower_count']
+b_follower_count = acc_b['follower_count']
+# ---/check if user is correct
+is_correct = check_answer(choice, a_follower_count, b_follower_count)
+
 # give user feedback
+if is_correct:
+    print('You are right')
 # score keeping
 # make game repeatable
 # clear screen between rounds
