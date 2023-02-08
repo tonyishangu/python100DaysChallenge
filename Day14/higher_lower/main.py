@@ -18,6 +18,7 @@ def check_answer(choice, a_followers, b_followers):
     else:
         return choice == 'b'
     
+score = 0
 # display art
 print(logo)
 # generate 2 random accounts from the data
@@ -42,7 +43,10 @@ is_correct = check_answer(choice, a_follower_count, b_follower_count)
 
 # give user feedback
 if is_correct:
-    print('You are right')
+    score += 1
+    print(f'You are right, your score is {score}')
+else:
+    print(f'You are wrong haha!!!, Total score is {score}')
 # score keeping
 # make game repeatable
 # clear screen between rounds
