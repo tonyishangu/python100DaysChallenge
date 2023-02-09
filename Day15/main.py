@@ -47,6 +47,30 @@ def sufficient_resources(order_ingredients):
             return False
     return True
 
+# TODO  Process coins.
+def process_coins():
+    '''return total calculated coins inserted'''
+    print('Please insert coins.')
+    total = int(input('How many quaters')) * 0.25
+    total += int(input('How many dimes')) * 0.1
+    total += int(input('How many nickles')) * 0.05
+    total += int(input('How many pennies')) * 0.01
+    return total
+
+def is_transaction_successful(money_received, drink_cost):
+    '''return true if payment is accepted, false is money is insufficient'''
+    if money_received >= drink_cost:
+        change = round(money_received - drink_cost, 2)
+        print(f'Here is {change} in change.')
+        global profit
+        profit += drink_cost
+        return True
+    else:
+        print('Insufficient funds. Money refunded')
+        return False
+    
+def make_coffee(drink_name, order_ingeridient)
+
 # TODO  Turn off the Coffee Machine by entering “off” to the prompt.
 is_on = True
 while is_on:
@@ -64,5 +88,5 @@ while is_on:
     else:
         drink = MENU[choice]
 
-# TODO  Process coins.
+
 # TODO  Make Coffee.
