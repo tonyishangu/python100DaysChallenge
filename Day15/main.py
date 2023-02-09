@@ -69,7 +69,11 @@ def is_transaction_successful(money_received, drink_cost):
         print('Insufficient funds. Money refunded')
         return False
     
-def make_coffee(drink_name, order_ingeridient)
+def make_coffee(drink_name, order_ingeridient):
+    '''deduct resources as needed'''
+    for item in order_ingeridient:
+        resources[item] -= order_ingeridient[item]
+    print(f'Here is your {drink_name}. Enjoy')
 
 # TODO  Turn off the Coffee Machine by entering “off” to the prompt.
 is_on = True
