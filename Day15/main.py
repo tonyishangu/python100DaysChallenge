@@ -81,7 +81,7 @@ is_on = True
 
 while is_on:
     # TODO  Prompt user by asking “What would you like? (espresso/latte/cappuccino)
-    choice = input('What would you like? expresso/latte/cappuccino').lower()
+    choice = input('What would you like? expresso/latte/cappuccino\n').lower()
     if choice == 'off':
         is_on = False
         print('Enjoy your coffee')
