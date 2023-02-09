@@ -69,6 +69,7 @@ def is_transaction_successful(money_received, drink_cost):
         print('Insufficient funds. Money refunded')
         return False
     
+# TODO  Make Coffee.
 def make_coffee(drink_name, order_ingeridient):
     '''deduct resources as needed'''
     for item in order_ingeridient:
@@ -77,6 +78,7 @@ def make_coffee(drink_name, order_ingeridient):
 
 # TODO  Turn off the Coffee Machine by entering “off” to the prompt.
 is_on = True
+
 while is_on:
     # TODO  Prompt user by asking “What would you like? (espresso/latte/cappuccino)
     choice = input('What would you like? expresso/latte/cappuccino').lower()
@@ -91,6 +93,10 @@ while is_on:
         print(f'Money: {profit}ml')
     else:
         drink = MENU[choice]
+        if sufficient_resources(drink['ingredients']):
+            payment = process_coins()
+            if is_transaction_successful(payment, drink['cost']):
+                make_coffee(choice, drink['ingredients'])
 
 
-# TODO  Make Coffee.
+
