@@ -6,6 +6,7 @@
 # ------check transaction successful?
 # ------make coffee
 
+profit = 0
 MENU = {
     "espresso": {
         "ingredients": {
@@ -37,7 +38,14 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
-profit = 0
+# TODO  Check resources sufficient?
+def sufficient_resources(order_ingredients):
+    '''return true if order can be made, false if there are insufficient resources'''
+    for item in order_ingredients:
+        if order_ingredients[item] > resources[item]:
+            print(f'Sorry, There is not enough {item}.')
+            return False
+    return True
 
 # TODO  Turn off the Coffee Machine by entering “off” to the prompt.
 is_on = True
@@ -48,11 +56,13 @@ while is_on:
         is_on = False
         print('Enjoy your coffee')
     # TODO  Print report.
-    if choice == 'report':
+    elif choice == 'report':
         print(f'Water: {resources["water"]}ml')
         print(f'Milk: {resources["milk"]}ml')
         print(f'Coffee: {resources["coffee"]}ml')
         print(f'Money: {profit}ml')
-# TODO  Check resources sufficient?
+    else:
+        drink = MENU[choice]
+
 # TODO  Process coins.
 # TODO  Make Coffee.
