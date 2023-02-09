@@ -1,7 +1,7 @@
 from art import logo, vs
 from game_date import data
 import random
-
+from replit import clear
 
 def format_data(acc):
     '''formart the data'''
@@ -41,12 +41,18 @@ while game_still_on:
 
     # input guess
     choice = input('Who has more follers, A or B ?').lower()
+    
     # check if user is correct
     # ##----get followers
     a_follower_count = acc_a['follower_count']
     b_follower_count = acc_b['follower_count']
+
     # ---/check if user is correct
     is_correct = check_answer(choice, a_follower_count, b_follower_count)
+
+        # clear screen between rounds
+    clear()
+    print(logo)
 
     # give user feedback
     if is_correct:
@@ -57,4 +63,3 @@ while game_still_on:
         print(f'You are wrong haha!!!, Total score is {score}')
     
 
-    # clear screen between rounds
