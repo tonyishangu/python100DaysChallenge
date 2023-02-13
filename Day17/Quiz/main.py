@@ -12,3 +12,6 @@ for question in question_data:
 quiz = Quiz(question_bank)
 while quiz.still_has_question:
     quiz.next_question()
+
+print('Quiz Done')
+print(f'Your Final Score is {quiz.score}/{quiz.q_num}')
