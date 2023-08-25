@@ -1,0 +1,2 @@
+amazon : tony@gmail.com : werdfg1?
+prime : tony@gmail.com : qwertyuio
