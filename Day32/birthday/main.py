@@ -5,8 +5,8 @@ import smtplib
 
 today = (dt.datetime.now().month, dt.datetime.now().day)
 data = pandas.read_csv('birthday.csv')
-email = 'tonysaigelo@gmail.com'
-password = 'Cana1es!!'
+email = ''
+password = ''
 
 
 birthday_dict = {(data_row.month, data_row.day): data_row for (index, data_row) in data.iterrows()}
