@@ -42,5 +42,22 @@ graph_data = {
     'quantity': '21',
 }
 
-res = requests.post(pixel_endpoint, json=graph_data, headers=headers)
-print(res.text)
+# res = requests.post(pixel_endpoint, json=graph_data, headers=headers)
+# print(res.text)
+
+
+# -------------update details------------------
+update_endpoint = f'{endpoint}/{username}/graphs/{graphid}/{today.strftime("%Y%m%d")}'
+
+new_graph_data = {
+    'quantity': '34'
+}
+
+# res = requests.put(url=update_endpoint, json=new_graph_data, headers=headers)
+# print(res.text)
+
+
+# ---------------delete-------------
+delete_endpoint = f'{endpoint}/{username}/graphs/{graphid}/{today.strftime("%Y%m%d")}'
+del_res = requests.delete(url=delete_endpoint, headers=headers)
+print(del_res.text)
