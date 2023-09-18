@@ -1,9 +1,11 @@
 import requests
+from datetime import datetime
 
 # --------------post request---------------
 
 username = 'saigelo'
 token = 'guukadvuiwfniuwef'
+graphid = 'graphtest'
 endpoint = 'https://pixe.la/v1/users'
 user_params = {
     'token':token,
@@ -11,14 +13,14 @@ user_params = {
     'agreeTermsOfService': 'yes',
     'notMinor': 'yes'
 }
-res = requests.post(url=endpoint, json=user_params)
-print(res.text)
+# res = requests.post(url=endpoint, json=user_params)
+# print(res.text)
 
 # --------------creating a graph-----------
 graph_endpoint = f'{endpoint}/{username}/graphs'
 
 graph_params = {
-    'id': 'graphtest',
+    'id': graphid,
     'name': 'Cycling Graph',
     'unit': 'km',
     'type': 'float',
@@ -27,5 +29,18 @@ graph_params = {
 headers = {
     'X-USER-TOKEN': token
 }
-response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
-print(response.text)
+# response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
+# print(response.text)
+
+# ----------posting values to our graphs------------
+
+pixel_endpoint = f'{endpoint}/{username}/graphs/{graphid}'
+
+today = datetime.now()
+graph_data = {
+    'date': today.strftime('%Y%m%d'),
+    'quantity': '21',
+}
+
+res = requests.post(pixel_endpoint, json=graph_data, headers=headers)
+print(res.text)
